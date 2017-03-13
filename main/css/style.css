@@ -1,1 +1,50 @@
-css
+.branding {
+	font-size: 17px;
+}
+
+.zdjecie1 {
+	background-image: url(../img/zdj1.jpg); no-repeat;
+ 	height: 600px;
+ 	padding: 150px 100px; 
+ 	color:white;
+}
+
+.zdjecie1 h1 {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 40px;
+	color:white;
+}
+
+.zdjecie1 hr {   /* Można usunąć zmiany, będzie wyglądać dobrze.*/
+margin: auto;
+border-color: #2196F3;
+width: 100px;
+border-width:3px;
+}
+.zdjecie1 p {
+	padding-bottom: 20px;
+}
+
+.zdjecie1 button:hover {
+	background-color:red;
+}
+.icobut {
+padding-left: 10px;
+}
+
+.second {
+padding:40px 0;
+}
+
+.second h2{
+padding:0;
+margin: 0;
+}
+
+.second .fa {
+	font-size:  50px;	
+}
+.third .fa {
+	font-size: 50px;
+}
