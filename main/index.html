@@ -14,22 +14,20 @@
 
 </head>
 
-
-
-
 <body>
 
 <!-- Navigacja -->
-<div class="w3-bar w3-black">
+<div class="w3-top">
+<div class="w3-bar w3-black ">
 	<span class="branding w3-bar-item w3-mobile">Text</span>
 	<span class="w3-right w3-mobile">
-	  <a href="#" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-	  <a href="#" class="w3-bar-item w3-button w3-hover-blue">About</a>
-	  <a href="#" class="w3-bar-item w3-button w3-hover-blue">Services</a>
-	  <a href="#" class="w3-bar-item w3-button w3-hover-blue">Contact</a>
+	  <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Home</a>
+	  <a href="#about" class="w3-bar-item w3-button w3-hover-blue w3-mobile">About</a>
+	  <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Services</a>
+	  <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Contact</a>
     </span>
 </div>
-
+</div>
 
 <!-- Głowna --> 
 
@@ -48,7 +46,7 @@
 
 <!-- Druga Sekcja --> 
 
-<section class="second w3-hover-opacity w3-blue	">
+<section class="section w3-hover-opacity w3-blue">
 	<div class="w3-container w3-center">
 		<i class="fa fa-heartbeat"></i>
 		<h2>Medical Stuff</h2>
@@ -57,8 +55,8 @@
 </section>
 
 <!-- Trzecia sekcja  -->
-<section class="third">
-	<div class="w3-container w3-center ">
+<section class="section w3-center w3-light-grey">
+	<div class="w3-container ">
 		<i class="fa fa-heartbeat"></i>
 		<h2>Best possible way</h2>
 		<p>Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f</p>
@@ -68,13 +66,74 @@
 
 
 <!-- O nas -->
-<section class="fourth">
+<section id="about" class="section">
 	<div class="w3-container">
 		<div class="w3-row-padding">
-			<div class="w3-col-m5"x``	></div>
+			<div class="w3-col m5">
+				<img src="img/zdj1.jpg">
+			</div>
+			<div class="w3-col m7">
+				<button onclick="myFunction('co')" class="w3-button w3-block w3-left-align  w3-blue">
+Czym się zajmujemy</button>
+
+<div id="co" class="w3-container w3-show">
+<h3>Wszystkim i niczym</h3>
+  <p>Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f</p>
+</div>
+
+<button onclick="myFunction('kto')" class="w3-button w3-block w3-left-align  w3-blue">
+Kim jesteśmy</button>
+<div id="kto" class="w3-container w3-hide">
+<h3>Kim byśmy nie byli</h3>
+  <p>Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f</p>
+</div>
+
+<button onclick="myFunction('gdzie')" class="w3-button w3-block w3-left-align  w3-blue">
+Lokalizacja  </button>
+
+<div id="gdzie" class="w3-container w3-hide">
+<h3>JJestesmy tu i tam</h3>
+  <p>Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f
+  Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f</p>
+</div>
+
+
+			</div>
 		</div>
 	</div>
 </section>
+
+<!-- Usługi -->
+<section class="section w3-hover-opacity w3-blue">
+	<div class="w3-container w3-center">
+		<i class="fa fa-user-md"></i>
+		<h2>Medyczne usługi</h2>
+		<p>Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f</p>
+	</div>
+</section>
+	
+
+
+<!-- kod do rozwijanego menu js --> 
+<script>
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
 
 </body>
 </html>
