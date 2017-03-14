@@ -6,6 +6,7 @@
 	<title>main</title>
 
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
@@ -19,12 +20,14 @@
 <!-- Navigacja -->
 <div class="w3-top">
 <div class="w3-bar w3-black ">
-	<span class="branding w3-bar-item w3-mobile">Text</span>
+	<span class="branding w3-bar-item w3-mobile">Medical Art</span>
 	<span class="w3-right w3-mobile">
 	  <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Home</a>
 	  <a href="#about" class="w3-bar-item w3-button w3-hover-blue w3-mobile">About</a>
-	  <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Services</a>
-	  <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Contact</a>
+	  <a href="#usługi" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Usługi</a>
+	  <a href="#kontakt" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Kontakt</a>
+	  <a onclick="document.getElementById('login-modal').style.display='block'" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Logowanie</a>
+	  <a onclick="document.getElementById('start-modal').style.display='block'" class="w3-bar-item w3-button w3-hover-blue w3-mobile">Zarejerstruj się</a>
     </span>
 </div>
 </div>
@@ -33,12 +36,12 @@
 
 <section class = "zdjecie1">
 	<div class = "w3-container w3-center">
-		<h1  class = "w3-animate-opacity">
+		<h1  class = "wdech w3-animate-opacity">
 			Odetchnij z nami	
 		</h1>
 		<hr>
 		<p> Aplikacja, która umożliwi Ci umówić się na wizytę w mniej niż 5 min. Niewiedza jest najgorszą chorobą. Dowiedz się na co jesteś uczulony, kiedy rozpoczyna się sezon pylenia i jak poradzić sobie z uciążliwym katarem alergicznym. Wa idsifohoidf odsifoidspqwe oqwpeoqwiep ouigiug uiewg iusdfs dfkjbjkbkjcv kjkbjbsd fuh wieuhriuh wieuhi </p>
-		<button class ="w3-button w3-black w3-large w3-opacity w3-hover-blue">Zaufaj nam<i class="icobut fa fa-user-md"></i></button>
+		<button onclick="document.getElementById('start-modal').style.display='block'" class ="but w3-button w3-black w3-large w3-opacity w3-hover-blue ">Zaufaj nam <i class="icobut fa fa-user-md"></i></button>
 
 	</div>
 </section>
@@ -111,16 +114,151 @@ Lokalizacja  </button>
 	</div>
 </section>
 
-<!-- Usługi -->
-<section class="section w3-hover-opacity w3-blue">
+<!-- Usługi  -->
+
+<!--nagłówek usług -->
+<section id="usługi" class="section w3-hover-opacity w3-blue">
 	<div class="w3-container w3-center">
-		<i class="fa fa-user-md"></i>
-		<h2>Medyczne usługi</h2>
+		<h1 class="w3-text-shadow">Medyczne usługi</h1>
 		<p>Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f</p>
 	</div>
 </section>
 	
 
+<!-- faktyczne usługi -->
+
+<section class="section w3-light-grey">
+	<div class="w3-container w3-center ">
+		<div class="w3-col m3">
+			<i class="icobut fa fa-stethoscope w3-blue w3-padding-small w3-round-xxlarge"></i>
+			<h3>Alergologia</h3>
+			<p>bla bla bla </p>
+		</div>
+		<div class="w3-col m3">
+			<i class="icobut 	fa fa-hospital-o w3-blue w3-padding-small w3-round-xxlarge"></i>
+			<h3>Zapis</h3>
+			<p>bla bla bla</p>
+		</div>
+		<div class="w3-col m3">
+			<i class="icobut hideme	fa fa-medkit w3-blue w3-padding-small w3-round-xxlarge"></i>
+			<h3>Zabiegi</h3>
+			<p>bla bla bla</p>
+		</div>
+		<div class="w3-col m3">
+			<i class="icobut fa fa-user-md w3-blue w3-padding-small w3-round-xxlarge"></i>
+			<h3>Profesionalizm</h3>
+			<p>bla bla bla </p>
+		</div>
+
+		
+	</div>
+
+</section>
+
+
+<!-- Kontakt --> 
+<!-- Nagłówek -->
+<section id="kontakt" class="section ">
+	<div class="w3-container w3-center ">
+		<h1>Skontaktuj się z nami</h1>
+		<p>Talking talking talking talking talking talking talking talking talkign talkgint al tkaefb euif biu fbdsjk f</p>
+	</div>
+
+<!-- faktyczny kontakt -->
+
+<section class="section">
+	<div class="w3-container">
+		
+<div class="w3-card-4">
+
+<div class="w3-container w3-blue">
+  <h2>Kontakt</h2>
+</div>
+
+<form class="w3-container w3-card-4 ">
+<br>
+<label class="w3-label w3-text-black text">Imie</label>
+<input class="w3-input w3-border" type="text">
+<br>
+<label class="w3-label w3-text-black text ">Email</label>
+<input class="w3-input w3-border" type="text">
+<br>
+<label class="w3-input text">Message</label>
+<textarea class="w3-input w3-border"></textarea>
+<button type="submit" class="w3-button w3-black w3-hover-blue">Submit</button>
+<br><br>
+
+</form>
+
+</div>
+
+	</div>
+</section>
+
+
+<!-- Footer --> 
+
+<footer class="w3-black w3-padding-xlarge w3-center ">
+	<p>Usługi medyczne Medcostam &copy; 2017</p>
+</footer>
+
+
+<!-- Modal code rejerstracja-->
+<
+<div id="start-modal" class="w3-modal">
+	<div class="w3-modal-content">
+		<header class="w3-container w3-blue">
+			<span class="w3-closebtn" onclick="document.getElementById('start-modal').style.display='none'">&times;</span>
+		
+
+		<h2>Zacznij już dziś</h2>
+</header>
+		<div class="w3-container">
+			<form>
+				<div class="w3-section">
+					<label>Imie</label>
+					<input type="text" placeholder="Twoje imie" name="" class="w3-input w3-border w3-margin-bottom">
+					<label>Nazwisko</label>
+					<input type="text" placeholder="Twoje nazwisko" name="" class="w3-input w3-border w3-margin-bottom">
+					<label>Email</label>
+					<input type="text" placeholder="Twój Email" name="" class="w3-input w3-border w3-margin-bottom">
+					<label>Hasło</label>
+					<input type="password" placeholder="Hasło" name="" class="w3-input w3-border w3-margin-bottom">
+					<label>Powtórz Hasło</label>
+					<input type="password" placeholder="Powtórz Hasło" name="" class="w3-input w3-border w3-margin-bottom">
+
+
+					<button class="w3-black w3-btn-block w3-section w3-padding w3-hover-blue">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Moral code login -->
+
+<
+<div id="login-modal" class="w3-modal">
+	<div class="w3-modal-content">
+		<header class="w3-container w3-blue">
+			<span class="w3-closebtn" onclick="document.getElementById('login-modal').style.display='none'">&times;</span>
+		
+
+		<h2>Zaloguj się</h2>
+</header>
+		<div class="w3-container">
+			<form>
+				<div class="w3-section">
+					<label>Email</label>
+					<input type="text" placeholder="Twój Email" name="" class="w3-input w3-border w3-margin-bottom">
+					<label>Hasło</label>
+					<input type="password" placeholder="Hasło" name="" class="w3-input w3-border w3-margin-bottom">
+					<button class="w3-black w3-btn-block w3-section w3-padding w3-hover-blue">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
 <!-- kod do rozwijanego menu js --> 
 <script>
@@ -135,5 +273,8 @@ function myFunction(id) {
 </script>
 
 
+
+
+</script>
 </body>
 </html>
