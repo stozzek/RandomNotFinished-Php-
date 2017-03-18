@@ -1,3 +1,67 @@
+<!-- Sign up i login -->
+
+<?php 
+/* Main page with two forms: sign up and log in */
+require 'db.php';
+session_start();
+?>
+
+
+<!-- KONTAKT FORMULARZ -->
+
+<?php 
+// Sprawdzanie Submitu
+$msg ='';
+$msgClass=''; 
+ // BEDZIE DZIALAC GDY BEDZIEMY POSIADAC SERVER EMAIL W SERWISIE HOSTINGOWYM
+if(filter_has_var(INPUT_POST, 'submit')) {
+	//bierzemy z daty
+	$name = htmlspecialchars($_POST['name']);
+	$email = htmlspecialchars($_POST['email']);
+	$message = htmlspecialchars($_POST['message']);
+
+		//sprawdzamy czy wypelnione i nie puste
+		if (!empty($email) && !empty($name)	&& !empty($message)) {
+			//udalo sie 
+			if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+				$msg ='Prosze użyć właściwego emaila';
+				$msgClass ='alert-danger';   // alert-danger jest klasą alertu w bootstrapie 
+ 			} else {
+				// to jest email
+				// wysyłanie na maila 
+
+				 $toEmail = 'stozzek@gmail.com';
+				 $subject = 'Wiadomość od ' .$name;
+				 $body = "<h2>Wiadomość od </h2>
+				 <h4>Wiadomość od </h4> <p>'.$name' </p>
+				 <h4>Wiadomość od </h4> <p>'.$email' </p>
+				 <h4>Wiadomość od </h4> <p>'.$message'</p>";
+
+				 //Email headers 
+				 $headers = "MIME_Version: 1.0" ."\r\n";
+				 // .= dodaje do zmiennej headers , NIE NADPISUJE
+				 $headers .="Content-Type:text/html;charset=utf-8 " . "\r\n";
+				 // Od kogo
+				 $headers.= "From: " .$name. "<".$email.">". "\r\n";
+
+				 if (mail($toEmail, $subject, $body, $headers)) {
+				 		//Wysłanie emaila
+				 	$msg = 'Twoja wiadomość została wysłana';
+				 	$msgClass ="alert-succes";
+				 } else
+				 	$msg ='Twoja wiadomość nie została wysłana';
+					$msgClass ='alert-danger';
+			}
+			//email check
+		} else {
+			// nie udalo sie wyslac wiadomosci
+			$msg ='Prosze wypelnić cały formularz';
+			$msgClass ='alert-danger';
+		}
+}
+
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +76,32 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" ref="https://bootswatch.com/cosmo/bootstrap.min.css"> <!-- do alertów (zielonych, pozytywnych)-->
 
 </head>
+
+
+
+
+
+<?php 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+    if (isset($_POST['login'])) { //user logging in
+
+        require 'login.php';
+        
+    }
+    
+    elseif (isset($_POST['register'])) { //user registering
+        
+        require 'register.php';
+        
+    }
+}
+?>
+
+
 
 <body>
 
@@ -175,17 +263,32 @@ Lokalizacja  </button>
   <h2>Kontakt</h2>
 </div>
 
-<form class="w3-container w3-card-4 " method="post" action="">
+<!-- informacja o poprawnym i niepoprawnym wypełnieniu formularza -->
+<?php if ($msg != ''):  ?>
+<div class="w3-panel w3-red w3-display-container <<?php echo $msgClass; ?>" >
+ <h4><?php echo $msg; ?></h4>
+              <!-- 2 linie kodu dla X zamykającego Div, alert-->
+<span onclick="this.parentElement.style.display='none'"
+  class="w3-button w3-red w3-large w3-display-topright">&times;</span>
+
+ </div>
+<?php endif; ?>
+
+
+<!-- formularz -->
+<form class="w3-container w3-card-4 " method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 <br>
 <label class="w3-label w3-text-black text">Imie</label>
-<input class="w3-input w3-border" type="text">
+<input class="w3-input w3-border" type="text" name="name" value="
+ <?php echo isset($_POST['name']) ? $name : ''; ?>">
 <br>
 <label class="w3-label w3-text-black text ">Email</label>
-<input class="w3-input w3-border" type="text">
+<input class="w3-input w3-border" type="text" name="email" value="
+ <?php echo isset($_POST['email']) ? $email : ''; ?>">
 <br>
-<label class="w3-input text">Message</label>
-<textarea class="w3-input w3-border"></textarea>
-<button type="submit" class="w3-button w3-black w3-hover-blue">Submit</button>
+<label class="w3-input" >Message</label>
+<textarea class="w3-input w3-border" name="message"><?php echo isset($_POST['name']) ? $name : ''; ?></textarea>
+<button type="submit" name="submit" class="w3-button w3-black w3-hover-blue">Submit</button>
 <br><br>
 
 </form>
@@ -214,21 +317,21 @@ Lokalizacja  </button>
 		<h2>Zacznij już dziś</h2>
 </header>
 		<div class="w3-container">
-			<form>
+			<form action="index.php" method="post" autocomplete="off">
 				<div class="w3-section">
 					<label>Imie</label>
-					<input type="text" placeholder="Twoje imie" name="" class="w3-input w3-border w3-margin-bottom">
+					<input placeholder="Twoje imie" class="w3-input w3-border w3-margin-bottom" type="text" required autocomplete="off" name='firstname' />
 					<label>Nazwisko</label>
-					<input type="text" placeholder="Twoje nazwisko" name="" class="w3-input w3-border w3-margin-bottom">
+					<input placeholder="Twoje nazwisko" class="w3-input w3-border w3-margin-bottom" type="text" required autocomplete="off" name='lastname' />
 					<label>Email</label>
-					<input type="text" placeholder="Twój Email" name="" class="w3-input w3-border w3-margin-bottom">
+					<input placeholder="Twój Email" class="w3-input w3-border w3-margin-bottom" type="email" required autocomplete="off" name='email' />
 					<label>Hasło</label>
-					<input type="password" placeholder="Hasło" name="" class="w3-input w3-border w3-margin-bottom">
-					<label>Powtórz Hasło</label>
-					<input type="password" placeholder="Powtórz Hasło" name="" class="w3-input w3-border w3-margin-bottom">
+					<input placeholder="Hasło" class="w3-input w3-border w3-margin-bottom" type="password" required autocomplete="off" name='password' />
+					<!--<label>Powtórz Hasło</label>
+					<input type="password" placeholder="Powtórz Hasło" name="" class="w3-input w3-border w3-margin-bottom"> -->
 
 
-					<button class="w3-black w3-btn-block w3-section w3-padding w3-hover-blue">Submit</button>
+					<button href="#kontakt" class="w3-black w3-btn-block w3-section w3-padding w3-hover-blue" type="submit" name="register">Submit</button>
 				</div>
 			</form>
 		</div>
@@ -247,13 +350,14 @@ Lokalizacja  </button>
 		<h2>Zaloguj się</h2>
 </header>
 		<div class="w3-container">
-			<form>
+			<form aaction="index.php" method="post" autocomplete="off>
 				<div class="w3-section">
 					<label>Email</label>
-					<input type="text" placeholder="Twój Email" name="" class="w3-input w3-border w3-margin-bottom">
+					<input placeholder="Twój Email" name="email" class="w3-input w3-border w3-margin-bottom" type="email" required autocomplete="off" name="email">
 					<label>Hasło</label>
-					<input type="password" placeholder="Hasło" name="" class="w3-input w3-border w3-margin-bottom">
-					<button class="w3-black w3-btn-block w3-section w3-padding w3-hover-blue">Login</button>
+					<input placeholder="Hasło" class="w3-input w3-border w3-margin-bottom" type="password" required autocomplete="off" name="password">
+					<p class="forgot"><a href="forgot.php">Zapomniałeś hasła?</a></p>
+					<button class="w3-black w3-btn-block w3-section w3-padding w3-hover-blue" name="login">Login</button>
 				</div>
 			</form>
 		</div>
