@@ -1,4 +1,5 @@
 body {
+	margin: 0 auto;
 }
 .branding {
 	font-size: 17px;
@@ -75,6 +76,7 @@ margin: 0;
 	float: right;
 }
 
+
 footer {
 	margin-bottom: -70px;
 }
@@ -88,3 +90,8 @@ footer {
 		padding: 60px 0;
 	}
 }
+
+/* ERROR page */ 
+/* ERROR page */ 
+
+

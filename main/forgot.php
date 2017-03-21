@@ -32,11 +32,11 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
         $message_body = '
         Hello '.$first_name.',
 
-        You have requested password reset!
+        You have requested password reset!  
 
         Please click this link to reset your password:
 
-        http://localhost/login-system/reset.php?email='.$email.'&hash='.$hash;  
+        http://localhost/aplikacja/main/reset.php?email='.$email.'&hash='.$hash;  
 
         mail($to, $subject, $message_body);
 
@@ -48,28 +48,28 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 <html>
 <head>
   <title>Reset Your Password</title>
-  <?php include 'css/css.html'; ?>
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    
-  <div class="form">
-
+    <section class="section w3-teal">
+  <div class="w3-container w3-center ">
+  
     <h1>Reset Your Password</h1>
+    <form action="forgot.php" method="post" class="w3-third w3-display-middle" >
+        <p class="w3-text-black"> Enter your email adress</p>
+      <input  class="w3-input w3-border " type="email" required autocomplete="off" name="email" placeholder="Twój Email" />
 
-    <form action="forgot.php" method="post">
-     <div class="field-wrap">
-      <label>
-        Email Address<span class="req">*</span>
-      </label>
-      <input type="email"required autocomplete="off" name="email"/>
-    </div>
-    <button class="button button-block"/>Reset</button>
+    <br>
+    <button class="w3-btn w3-black w3-padding-large w3-hover-teal"/>Reset</button>
     </form>
-  </div>
+    </div>
+
+</section> 
           
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/index.js"></script>
+<!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="js/index.js"></script> -->
 </body>
 
 </html>

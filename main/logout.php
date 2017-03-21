@@ -8,18 +8,20 @@ session_destroy();
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Error</title>
-  <?php include 'css/css.html'; ?>
+  <title>logout</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="form">
+<section class="section w3-teal">
+<div class="w3-container w3-center">
           <h1>Thanks for stopping by</h1>
               
           <p><?= 'You have been logged out!'; ?></p>
-          
-          <a href="index.php"><button class="button button-block"/>Home</button></a>
-
-    </div>
+         
+          <a href="index.php"><button class="w3-btn w3-black w3-padding-large w3-hover-teal"/>Home</button></a>
+</div>
+</section>
 </body>
 </html>

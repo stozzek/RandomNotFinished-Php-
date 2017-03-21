@@ -30,41 +30,37 @@ else {
 <head>
   <meta charset="UTF-8">
   <title>Reset Your Password</title>
-  <?php include 'css/css.html'; ?>
 </head>
 
 <body>
-    <div class="form">
+<section class="section w3-teal">
+<div class="w3-container w3-center">
 
           <h1>Choose Your New Password</h1>
           
-          <form action="reset_password.php" method="post">
+          <form action="reset_password.php" method="post" class="w3-third w3-display-middle">
               
-          <div class="field-wrap">
-            <label>
-              New Password<span class="req">*</span>
-            </label>
-            <input type="password"required name="newpassword" autocomplete="off"/>
+          <div class=>
+            <p class="w3-text-black"> Nowe hasło</p>
+            <input type="password" required name="newpassword" autocomplete="off" placeholder="Wpisz nowe hasło" class="w3-input w3-border"/>
           </div>
               
-          <div class="field-wrap">
-            <label>
-              Confirm New Password<span class="req">*</span>
-            </label>
-            <input type="password"required name="confirmpassword" autocomplete="off"/>
+          <div class=>
+            <<p class="w3-text-black"> Potwierdź nowe hasło</p>
+            <input type="password"required name="confirmpassword" placeholder="Powtórz hasło" autocomplete="off" class="w3-input w3-border"/>
           </div>
           
           <!-- This input field is needed, to get the email of the user -->
           <input type="hidden" name="email" value="<?= $email ?>">    
-          <input type="hidden" name="hash" value="<?= $hash ?>">    
-              
-          <button class="button button-block"/>Apply</button>
+          <input type="hidden" name="hash"  value="<?= $hash ?>">    
+              <br>
+          <button class="w3-btn w3-black w3-padding-large w3-hover-teal"/>Reset</button>
           
           </form>
-
-    </div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/index.js"></script>
+</div>
+</section>
+<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="js/index.js"></script> -->
 
 </body>
 </html>

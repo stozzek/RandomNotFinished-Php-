@@ -6,11 +6,13 @@ session_start();
 <html>
 <head>
   <title>Success</title>
-  <?php include 'css/css.html'; ?>
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="form">
-    <h1><?= 'Success'; ?></h1>
+<section class="section w3-teal">
+<div class="w3-container w3-center">
+    <h1>Success</h1>
     <p>
     <?php 
     if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ):
@@ -20,7 +22,8 @@ session_start();
     endif;
     ?>
     </p>
-    <a href="index.php"><button class="button button-block"/>Home</button></a>
+    <a href="index.php"><button class="w3-btn w3-black w3-padding-large w3-hover-teal"/>Home</button></a>
 </div>
+</section>
 </body>
 </html>
