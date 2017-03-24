@@ -28,6 +28,9 @@ else {
 <!DOCTYPE html>
 <html >
 <head>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="UTF-8">
   <title>Reset Your Password</title>
 </head>
